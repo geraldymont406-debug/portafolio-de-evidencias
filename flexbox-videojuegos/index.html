@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="peli.css">
+    <title>Flexbox vs CSS Grid</title>
+
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1D202B;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+    display: flex;
+    gap: 20px;
+    
+}
+
+.titulo {
+    font-size: 24px;
+    padding: 20px 0;
+}
+
+.contenedor-conciertos {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+
+.card {
+    border-radius: 20px;
+    min-height: 200px;
+    font-weight: bold;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    width: calc(33.33% - 20px);
+    
+}
+
+.card .textos {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.banner {
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.banner ul {
+    list-style: none;
+}
+
+.banner ul li {
+    margin: 15px;
+    font-weight: bold;
+}
+
+.banner .boton {
+    background: #37f937;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+}
+
+@media screen and (max-width: 600px) {
+
+}
+    </style>
+
+</head>
+<body>
+    <div class="contenedor">
+        <div class="contenedor-conciertos"> 
+            <div class="card" style="background-image: url('mario.webp')">
+                <div class="textos">
+                    <h3>Mario Bros</h3>
+                    <p>Arcade</p>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('pack-man.avif')">
+                <div class="textos">
+                    <h3>Pac-Man</h3>
+                    <p>Arcade</p>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('minecraft.png')">
+                <div class="textos">
+                    <h3>Minecraft</h3>
+                    <p>PC</p>
+                </div>
+            </div>
+
+            <div class="card" style="background-image: url('sonic.webp')">
+                <div class="textos">
+                    <h3>Sonic</h3>
+                    <p>Sega Genesis</p>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('pikachu.avif')">
+                <div class="textos">
+                    <h3>Pikachu</h3>
+                    <p>Game Boy</p>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('chief.avif')">
+                <div class="textos">
+                    <h3>Master Chief</h3>
+                    <p>Xbox</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner" style="background-image: url('juegos.jpg')">
+            <h3>LEYENDAS DEL GAMING</h3>
+            <ul>
+                <li>🎮 Super Mario Bros</li>
+                <li>⚡ Sonic the Hedgehog</li>
+                <li>👻 Pac-Man</li>
+                <li>⚔️ The Legend of Zelda</li>
+                <li>🔲 Minecraft</li>
+                <li>🔫 Halo</li>
+            </ul>
+            <button class="boton">Player Dayani</button>
+        </div>
+    </div>
+</body>
+</html>

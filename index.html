@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio de Programación 💜</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="user-profile">
+      <div class="avatar">✨</div>
+      <div>
+        <h1>Mi Portafolio de Proyectos</h1>
+        <p>Estudiante de Desarrollo Web. Carpeta de Actividades</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Buscador -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Buscar actividad por nombre o tecnología..." onkeyup="filtrarActividades()">
+  </div>
+
+  <!-- Contenedor de Tarjetas -->
+  <main class="grid-container" id="cardsContainer">
+    <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+  </main>
+
+  <!-- Modal para ver el Ejercicio / Código -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Nombre de la Actividad</h2>
+        <button class="close-btn" onclick="cerrarModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="projectIframe" src="" title="Vista previa del ejercicio"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
