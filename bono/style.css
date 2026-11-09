@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Configuración de estilos personalizados para Tailwind v3 */
+script:not([type]) {
+    /* Mantiene compatibilidad con las fuentes del sistema */
+}
+
+/* Ajustes globales de tipografía si se requieren */
+body {
+    font-family: 'Inter', sans-serif;
+}

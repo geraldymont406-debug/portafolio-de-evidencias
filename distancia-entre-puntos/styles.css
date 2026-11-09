@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* El fondo exterior */
+  background-color: #1a301a; 
+}
+
+body { /*Cuadro*/
+  font-family: Arial, sans-serif;
+  max-width: 380px;         
+  margin: 60px auto;         
+  padding: 30px 25px;
+  color: #eff3ea;
+  background-color: #112211; 
+  border: 2px solid #ebd79b; 
+  border-radius: 16px;      
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.5); 
+}
+
+h1, h2, h3, label {
+  color: #eff3ea;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0 18px;
+  box-sizing: border-box;
+  background-color: #f7f5ed;
+  /* Un borde sutil para que se integre con el fondo */
+  border: 1px solid #c2bfae;
+  border-radius: 8px;
+  color: #112211;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Efecto cuando el usuario hace clic en un input */
+input:focus {
+  border-color: #ebd79b;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(235, 215, 155, 0.4);
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ebd79b;
+  border-radius: 12px; 
+  border: none;        
+  color: #0f290a; 
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #dfcaa7;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #ebd79b; /* El resultado */
+}

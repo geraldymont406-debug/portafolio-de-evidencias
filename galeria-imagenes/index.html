@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Galería Dinámica JS</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Galería de imágenes</h1>
+<!-- Estructura del formulario en HTML -->
+<div style="text-align: center; margin-bottom: 20px;">
+<input type="text" id="imagenURL" placeholder="URL de la imagen">
+<input type="text" id="pieFoto" placeholder="pie de foto">
+<button onclick="agregaImagen()">Agregar imagen</button>
+</div>
+<div id="galeriaImagenes" style="display: flex; flex-wrap: wrap; gap: 20px;">
+</div>
+<script src="script.js"></script>
+</body>
+</html>

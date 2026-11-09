@@ -1,56 +1,22 @@
-// 1. LISTA DE ACTIVIDADES (Con fecha, módulo, título, descripción y ruta)
 const actividades = [
-  {
-    id: "01",
-    titulo: "Vivero",
-    modulo: "Módulo 1: Fundamentos Web",
-    fecha: "2026-02-10",
-    descripcion: "Página web para un vivero con catálogo de plantas y cuidados básicos.",
-    ruta: "vivero/index.html"
-  },
-  {
-    id: "02",
-    titulo: "Pastelería",
-    modulo: "Módulo 1: Fundamentos Web",
-    fecha: "2026-02-18",
-    descripcion: "Diseño de sitio web para una pastelería con menú de postres.",
-    ruta: "pastel/index.html"
-  },
-  {
-    id: "03",
-    titulo: "Página de Música con Flexbox",
-    modulo: "Módulo 2: Diseños con Flexbox",
-    fecha: "2026-03-02",
-    descripcion: "Interfaz de reproductor/plataforma de música maquetada con Flexbox.",
-    ruta: "flexbox-musica/index.html"
-  },
-  {
-    id: "04",
-    titulo: "Página Mágica de Videojuegos",
-    modulo: "Módulo 2: Diseños con Flexbox",
-    fecha: "2026-03-12",
-    descripcion: "Landing page temática de videojuegos utilizando distribución en Flexbox.",
-    ruta: "flexbox-videojuegos/index.html"
-  },
-  {
-    id: "05",
-    titulo: "Catálogo de Relojes con Flexbox",
-    modulo: "Módulo 2: Diseños con Flexbox",
-    fecha: "2026-03-20",
-    descripcion: "Catálogo e inventario de relojes maquetado con Flexbox.",
-    ruta: "catalogo-relojes/index.html"
-  },
-  {
-    id: "06",
-    titulo: "Práctica General de Flexbox",
-    modulo: "Módulo 2: Diseños con Flexbox",
-    fecha: "2026-03-28",
-    descripcion: "Ejercicio integrador maquetando una estructura web completa.",
-    ruta: "paginaflexbox/index.html"
-  }
+  { id: "01", titulo: "Vivero", modulo: "Módulo 1", fecha: "2026-09-08", descripcion: "Página web para un vivero con catálogo de plantas y cuidados básicos.", ruta: "vivero/index.html" },
+  { id: "02", titulo: "Pastelería", modulo: "Módulo 1", fecha: "2026-09-18", descripcion: "Diseño de sitio web para una pastelería con menú de postres.", ruta: "pastel/index.html" },
+  { id: "03", titulo: "Página de Música con Flexbox", modulo: "Módulo 1", fecha: "2026-09-22", descripcion: "Interfaz de reproductor/plataforma de música maquetada con Flexbox.", ruta: "flexbox-musica/index.html" },
+  { id: "04", titulo: "Página de Videojuegos", modulo: "Módulo 1", fecha: "2026-09-22", descripcion: "Landing page temática de videojuegos utilizando distribución en Flexbox.", ruta: "flexbox-videojuegos/index.html" },
+  { id: "05", titulo: "Catálogo de Relojes con Flexbox", modulo: "Módulo 1", fecha: "2026-09-23", descripcion: "Catálogo e inventario de relojes maquetado con Flexbox.", ruta: "catalogo-relojes/index.html" },
+  { id: "06", titulo: "Práctica General de Flexbox", modulo: "Módulo 1", fecha: "2026-09-23", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "paginaflexbox/index.html" },
+  { id: "07", titulo: "Ejercicios básicos de JavaScript", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "ejercicios-basicos-js/index.html" },
+  { id: "08", titulo: "Calculo de Bono", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "bono/index.html" },
+  { id: "09", titulo: "Distancia entre dos puntos", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "distancia-entre-puntos/index.html" },
+  { id: "10", titulo: "Recicladora", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "recicladora/index.html" },
+  { id: "11", titulo: "My-To-Do-List", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "my-to-do-list/index.html" },
+  { id: "12", titulo: "Cocina económica", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "cocina-economica/index.html" },
+  { id: "13", titulo: "Cartonería", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "catrinas/index.html" },
+  { id: "14", titulo: "Galeria de imágenes", modulo: "Módulo 1", fecha: "2026-10-08", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "galeria-imagenes/index.html" },
+  { id: "15", titulo: "Lista de tareas", modulo: "Módulo 1", fecha: "2026-10-29", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "lista-de-tareas/index.html" },
+  { id: "16", titulo: "Practica de EventListeners en Java Script", modulo: "Módulo 1", fecha: "2026-10-29", descripcion: "Ejercicio integrador maquetando una estructura web completa.", ruta: "event-listeners/index.html" }
 ];
 
-// 2. FUNCIÓN PARA GENERAR Y DIBUJAR LAS TARJETAS EN EL HTML
 function cargarTarjetas(lista = actividades) {
   const container = document.getElementById("cardsContainer");
   if (!container) return;
@@ -61,38 +27,76 @@ function cargarTarjetas(lista = actividades) {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <span class="card-tag">Actividad #${act.id}</span>
-        <small style="font-size: 0.8rem; font-weight: 600;">📅 ${act.fecha}</small>
+      <div class="card-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span class="card-tag">Actividad #${act.id}</span>
+          <small style="font-size: 0.8rem; font-weight: 600;">📅 ${act.fecha}</small>
+        </div>
+        
+        <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.2rem;">
+          ${act.modulo}
+        </p>
+
+        <h3 style="margin-bottom: 0.4rem;">${act.titulo}</h3>
+        <p style="font-size: 0.85rem;">${act.descripcion}</p>
       </div>
       
-      <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.2rem;">
-        ${act.modulo}
-      </p>
-
-      <h3 style="margin-bottom: 0.5rem;">${act.titulo}</h3>
-      <p style="font-size: 0.9rem; margin-bottom: 1rem;">${act.descripcion}</p>
-      
-      <button class="btn-open" onclick="abrirModal('${act.titulo}', '${act.ruta}')">
-        Abrir Ejercicio ✨
-      </button>
+      <div class="card-buttons">
+        <button class="btn-open" onclick="abrirModal('${act.titulo}', '${act.ruta}', '${act.id}')">
+          Abrir Ejercicio ✨
+        </button>
+      </div>
     `;
     container.appendChild(card);
   });
 }
 
-// 3. FUNCIÓN PARA ABRIR LA VENTANA MODAL CON EL EJERCICIO EN VIVO
-function abrirModal(titulo, ruta) {
+function abrirModal(titulo, ruta, id) {
   const modalTitle = document.getElementById("modalTitle");
   const projectIframe = document.getElementById("projectIframe");
+  const codeContent = document.getElementById("codeContent");
   const modalOverlay = document.getElementById("modalOverlay");
 
   if (modalTitle) modalTitle.innerText = titulo;
   if (projectIframe) projectIframe.src = ruta;
+
+  // Extraemos el código completo desde la etiqueta <template> correspondiente en el HTML
+  const template = document.getElementById(`code-${id}`);
+  if (codeContent && template) {
+    codeContent.textContent = template.innerHTML.trim();
+  } else if (codeContent) {
+    codeContent.textContent = "Código no disponible.";
+  }
+
+  cambiarPestana('preview');
   if (modalOverlay) modalOverlay.style.display = "flex";
 }
 
-// 4. FUNCIÓN PARA CERRAR LA VENTANA MODAL
+function cambiarPestana(tipo) {
+  const panePreview = document.getElementById("panePreview");
+  const paneCode = document.getElementById("paneCode");
+  const btnPrev = document.getElementById("tabPreviewBtn");
+  const btnCode = document.getElementById("tabCodeBtn");
+
+  if (tipo === 'preview') {
+    panePreview.classList.add("active");
+    paneCode.classList.remove("active");
+    btnPrev.classList.add("active");
+    btnCode.classList.remove("active");
+  } else {
+    paneCode.classList.add("active");
+    panePreview.classList.remove("active");
+    btnCode.classList.add("active");
+    btnPrev.classList.remove("active");
+    
+    // Aplica los colores de Prism.js de forma garantizada
+    const codeEl = document.getElementById("codeContent");
+    if (codeEl && window.Prism) {
+      Prism.highlightElement(codeEl);
+    }
+  }
+}
+
 function cerrarModal() {
   const modalOverlay = document.getElementById("modalOverlay");
   const projectIframe = document.getElementById("projectIframe");
@@ -101,7 +105,6 @@ function cerrarModal() {
   if (projectIframe) projectIframe.src = "";
 }
 
-// 5. FUNCIÓN DEL BUSCADOR EN TIEMPO REAL
 function filtrarActividades() {
   const input = document.getElementById("searchInput");
   if (!input) return;
@@ -116,7 +119,6 @@ function filtrarActividades() {
   cargarTarjetas(filtradas);
 }
 
-// Cargar todo al iniciar la página
 document.addEventListener("DOMContentLoaded", () => {
   cargarTarjetas();
 });

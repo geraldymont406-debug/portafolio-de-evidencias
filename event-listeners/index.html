@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica de EventListeners en JavaScript</title>
+  <!-- Atributo 'defer' para garantizar que el HTML se cargue antes de ejecutar el JS -->
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #boxElement {
+      width: 200px;
+      height: 100px;
+      background-color: #0088e3;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #be03f7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #e182fe;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Práctica de Event Listeners</h1>
+
+  <!-- Bloque 1: Clic con alerta/acción -->
+  <section>
+    <h2>1. Evento Click</h2>
+    <button id="myButton">Hacer clic aquí</button>
+  </section>
+
+  <!-- Bloque 2: Raton (mouseover/mouseout) -->
+  <section>
+    <h2>2. Eventos de Ratón</h2>
+    <p>Mueve el cursor sobre la caja:</p>
+    <div id="boxElement">Pasa el cursor aquí</div>
+  </section>
+
+  <!-- Bloque 3: Teclado (keydown) -->
+  <section>
+    <h2>3. Eventos de Teclado</h2>
+    <p>Presiona cualquier tecla de tu teclado y revisa la consola del navegador (tecla <strong>F12</strong>). Prueba presionar la tecla <strong>F</strong>.</p>
+  </section>
+
+  <!-- Bloque 4: Input en tiempo real -->
+  <section>
+    <h2>4. Evento Input</h2>
+    <h3 id="greetingHeading">Tu texto aparecerá aquí...</h3>
+    <input type="text" id="usernameInput" placeholder="Escribe tu nombre...">
+  </section>
+
+  <!-- Bloque 5: Ejecución única ({ once: true }) -->
+  <section>
+    <h2>5. Evento de un solo uso</h2>
+    <button id="singleButton">Hacer clic (solo funciona 1 vez)</button>
+  </section>
+</body>
+</html>
+
+

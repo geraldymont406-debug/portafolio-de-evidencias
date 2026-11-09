@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivero</title>
+    <style>
+        body {
+            background-color: #EAF4E3;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav.barra {
+            background-color: #3F6B4F;
+            padding: 15px;
+        }
+
+        button {
+            background-color: #6F9F76;
+            color: white;
+            border: none;
+            padding:12px 25px;
+            font-size: 18px;
+        }
+
+        .menu-desplegable {
+            position: relative;
+            display: inline-block;
+        }
+
+        .opciones-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: white;
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+
+        .menu-desplegable:hover .opciones-menu {
+            display:block;
+        }
+
+        .opciones-menu li {
+            padding: 10px;
+        }
+
+        .encabezado {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .encabezado h1 {
+            color: #3F6B4F;
+            font-size: 50px;
+        }
+
+        .encabezado p {
+            font-size: 20px;
+        }
+
+        .tarjeta {
+            background-color: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+        }
+
+        .productos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <nav class="barra">
+        <div class="menu-desplegable">
+            <button class="boton menu">☰ Menú</button>
+            <ul class="opciones-menu">
+                <li>Plantas de interior</li>
+                <li>Plantas de exterior</li>
+                <li>Plantas de semisombra</li>
+                <li>Plantas ornamentales</li>
+                <li>Huerto y comestible</li>
+                <li>Plantas medicinales</li>
+                <li>Suculentas y cactus</li>
+                <li>Plantas bulbosas</li>
+                <li>Trepadoras y enredaderas</li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="encabezado">
+        <h1>Vivero</h1>
+        <p>Un espacio lleno de vida naturaleza y color</p>
+    </header>
+
+    <section class="productos">
+        <div class="tarjeta">
+            <img src="monstera.png" alt="Monstera">
+            <h3>Monstera</h3>
+            <p>$250</p>
+        </div>
+        <div class="tarjeta">
+            <img src="lavanda.jpg" alt="Lavanda">
+            <h3>Lavanda</h3>
+            <p>$45</p>
+        </div>
+        <div class="tarjeta">
+            <img src="geranio.png" alt="Geranio">
+            <h3>Geranio</h3>
+            <p>$50</p>
+        </div>
+        <div class="tarjeta">
+            <img src="hortensias.jpg" alt="hortensia">
+            <h3>Hortensia</h3>
+            <p>$170</p>
+        </div>
+        <div class="tarjeta">
+            <img src="anturio.jpg" alt="anturio">
+            <h3>Anturio</h3>
+            <p>$200</p>
+        </div>
+        <div class="tarjeta">
+            <img src="orquidea.jpg" alt="orquidea">
+            <h3>Orquidea</h3>
+            <p>$250</p>
+        </div>
+        <div class="tarjeta">
+            <img src="jirasol.jpg" alt="jirasol">
+            <h3>Jirasol</h3>
+            <p>$70</p>
+        </div>
+        <div class="tarjeta">
+            <img src="palma-areca.jpg" alt="palma">
+            <h3>Palma Areca</h3>
+            <p>$350</p>
+        </div>
+        <div class="tarjeta">
+            <img src="manzanilla.jpg" alt="Manzanilla">
+            <h3>Manzanilla</h3>
+            <p>$150</p>
+        </div>
+        <div class="tarjeta">
+            <img src="menta" alt="Menta">
+            <h3>Menta</h3>
+            <p>$150</p>
+        </div>
+        <div class="tarjeta">
+            <img src="moringa" alt="Moringa">
+            <h3>Moringa</h3>
+            <p>$150</p>
+        </div>
+        <div class="tarjeta">
+            <img src="eucaliptus.jpg" alt="eucalipto">
+            <h3>Eucalipto</h3>
+            <p>$150</p>
+        </div>
+        <div class="tarjeta">
+            <img src="suculentas.webp" alt="Echeveria">
+            <h3>Echeveria elegans (Rosa de Alabastro)</h3>
+            <p>$60</p>
+        </div>
+        <div class="tarjeta">
+            <img src="sedum-morganianum.jpg" alt="Sedum">
+            <h3>Sedum morganianum (Cola de Burro)</h3>
+            <p>$400</p>
+        </div>
+        <div class="tarjeta">
+            <img src="dahlias.jpg" alt="dahlias">
+            <h3>Dahlia</h3>
+            <p>$150</p>
+        </div>
+        <div class="tarjeta">
+            <img src="tulipanes.jpg" alt="Tulipan">
+            <h3>Tulipan</h3>
+            <p>$120</p>
+        </div>
+    </section>
+</body>
+</html>
+

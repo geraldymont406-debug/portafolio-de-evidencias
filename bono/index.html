@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Sueldo y Bono Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tu archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen text-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans antialiased">
+
+    <div class="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12" x-data="salaryCalculator()">
+        
+        <!-- Left Panel: Form Section -->
+        <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+                <!-- Header -->
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-3 bg-indigo-600 rounded-2xl shadow-lg shadow-indigo-500/30 text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Cálculo de Bono</h1>
+                        <p class="text-xs sm:text-sm text-indigo-200">Sistema de Nómina y Prestaciones</p>
+                    </div>
+                </div>
+
+                <!-- Form Inputs -->
+                <form @submit.prevent="calcular" class="space-y-4 sm:space-y-5">
+                    
+                    <!-- Nombre del Trabajador -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-indigo-200 mb-1">Nombre del trabajador</label>
+                        <input type="text" x-model="nombre" placeholder="Ej. Juan Pérez" required
+                            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition text-sm">
+                    </div>
+
+                    <!-- Días Trabajados -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-indigo-200 mb-1">Días trabajados</label>
+                        <input type="number" min="0" max="365" step="0.5" x-model.number="diasTrabajados" placeholder="Ej. 30" required
+                            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition text-sm">
+                    </div>
+
+                    <!-- Sueldo por Día -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-indigo-200 mb-1">Sueldo por día ($)</label>
+                        <input type="number" min="0" step="0.01" x-model.number="sueldoPorDia" placeholder="Ej. 50" required
+                            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition text-sm">
+                    </div>
+
+                    <!-- ¿Tiene Hijos? (Radio Buttons) -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-indigo-200 mb-2">¿Tiene hijos?</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center justify-center px-4 py-3 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition has-[:checked]:bg-indigo-600/40 has-[:checked]:border-indigo-500">
+                                <input type="radio" name="tieneHijos" value="si" x-model="tieneHijos" class="sr-only">
+                                <span class="text-sm font-medium text-white">Sí</span>
+                            </label>
+                            <label class="flex items-center justify-center px-4 py-3 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 transition has-[:checked]:bg-indigo-600/40 has-[:checked]:border-indigo-500">
+                                <input type="radio" name="tieneHijos" value="no" x-model="tieneHijos" class="sr-only">
+                                <span class="text-sm font-medium text-white">No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <button type="submit" 
+                            class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/20 active:scale-[0.98] transition text-sm flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <span>Calcular</span>
+                        </button>
+                        <button type="button" @click="limpiar"
+                            class="w-full py-3.5 px-4 bg-white/10 hover:bg-white/20 text-indigo-100 font-semibold rounded-xl border border-white/10 active:scale-[0.98] transition text-sm flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            <span>Limpiar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Panel: Results Section -->
+        <div class="lg:col-span-6 bg-slate-900/60 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10">
+            <div>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-semibold text-white flex items-center space-x-2">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <span>Resultados</span>
+                    </h2>
+                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-medium rounded-full border border-indigo-500/30" x-text="calculado ? 'Completado' : 'Esperando datos'"></span>
+                </div>
+
+                <!-- Results Display Card -->
+                <div class="space-y-3">
+                    
+                    <!-- Trabajador -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Trabajador:</span>
+                        <span class="text-sm font-semibold text-white" x-text="nombre ? nombre : '---'"></span>
+                    </div>
+
+                    <!-- Sueldo Bruto -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Sueldo bruto:</span>
+                        <span class="text-sm font-semibold text-white font-mono" x-text="formatMoney(sueldoBruto)">$0.00</span>
+                    </div>
+
+                    <!-- Porcentaje del bono -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Porcentaje del bono:</span>
+                        <span class="text-sm font-semibold text-indigo-400" x-text="porcentajeBono + '%'">0%</span>
+                    </div>
+
+                    <!-- Bono original -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Bono original:</span>
+                        <span class="text-sm font-semibold text-white font-mono" x-text="formatMoney(bonoOriginal)">$0.00</span>
+                    </div>
+
+                    <!-- Bono adicional por hijos -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Bono adicional por hijos:</span>
+                        <span class="text-sm font-semibold text-emerald-400 font-mono" x-text="formatMoney(bonoAdicionalHijos)">$0.00</span>
+                    </div>
+
+                    <!-- Bono final -->
+                    <div class="flex justify-between items-center p-3.5 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-xs sm:text-sm text-slate-300">Bono final:</span>
+                        <span class="text-sm font-semibold text-teal-300 font-mono" x-text="formatMoney(bonoFinal)">$0.00</span>
+                    </div>
+
+                    <!-- Sueldo neto (Destacado) -->
+                    <div class="flex justify-between items-center p-4 bg-gradient-to-r from-indigo-600/30 to-purple-600/30 rounded-xl border border-indigo-500/30 shadow-lg mt-4">
+                        <span class="text-sm sm:text-base font-bold text-white">Sueldo neto:</span>
+                        <span class="text-lg sm:text-xl font-bold text-emerald-400 font-mono" x-text="formatMoney(sueldoNeto)">$0.00</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification / Modal for Messages -->
+    <div x-data="{ show: false, message: '' }" 
+         @notify.window="show = true; message = $event.detail; setTimeout(() => show = false, 3500)"
+         x-show="show" 
+         x-transition 
+         class="fixed bottom-6 right-6 z-50 bg-slate-800 border border-slate-700 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3">
+        <div class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></div>
+        <span class="text-sm font-medium" x-text="message"></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
